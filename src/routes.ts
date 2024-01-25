@@ -27,6 +27,17 @@ router.post('/upload', upload.single('image'), async (req: Request, res: Respons
   }
 });
 
+router.post('/upload', upload.array('images', 10), async (req: Request, res: Response) => {
+  try {
+    // Explicitly cast req.files to Express.Multer.File[]
+    const imageUrls = await imageService.handleMultipleImageUpload(req.files as Express.Multer.File[]);
+    return res.json({ imageUrls });
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
 router.get('/images', async (_, res: Response) => {
   try {
     const imageUrls = await imageService.getAllImageUrls();

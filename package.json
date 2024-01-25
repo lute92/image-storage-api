@@ -1,31 +1,34 @@
 {
   "name": "image-storage-api",
   "version": "1.0.0",
-  "description": "Image storage server to store , fetch stored images and fetch image with optimized image size.",
-  "main": "index.js",
+  "description": "Node.js Express TypeScript Image Storage API",
+  "main": "dist/app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node dist/app.js",
+    "build": "tsc"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/lute92/image-storage-api.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/lute92/image-storage-api/issues"
-  },
-  "homepage": "https://github.com/lute92/image-storage-api#readme",
+  "keywords": [
+    "node",
+    "express",
+    "typescript",
+    "image storage"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
   "dependencies": {
-    "express": "^4.18.2",
-    "multer": "^1.4.5-lts.1",
-    "uuid": "^9.0.1"
+    "@types/uuid": "^9.0.7",
+    "express": "^4.17.1",
+    "multer": "^1.4.4",
+    "sharp": "^0.32.6",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
-    "@types/express": "^4.17.21",
-    "@types/multer": "^1.4.11",
-    "@types/node": "^20.11.6",
-    "typescript": "^5.3.3"
+    "@types/express": "^4.17.13",
+    "@types/multer": "^1.4.4",
+    "@types/node": "^16.11.15",
+    "typescript": "^4.5.4"
+  },
+  "engines": {
+    "node": "20.10.0"
   }
 }

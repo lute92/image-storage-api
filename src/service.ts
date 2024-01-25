@@ -11,6 +11,21 @@ export async function handleImageUpload(file: Express.Multer.File | undefined): 
   return imageUrl;
 }
 
+export async function handleMultipleImageUpload(files: Express.Multer.File[]): Promise<string[]> {
+  if (!files || files.length === 0) {
+    throw new Error('No files provided');
+  }
+
+  const imageUrls: string[] = [];
+
+  for (const file of files) {
+    const imageUrl = `/uploads/${file.filename}`;
+    imageUrls.push(imageUrl);
+  }
+
+  return imageUrls;
+}
+
 export async function getAllImageUrls(): Promise<string[]> {
   const imageFiles = fs.readdirSync('uploads');
   const imageUrls = imageFiles.map((filename) => `/uploads/${filename}`);
